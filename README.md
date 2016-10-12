@@ -3,10 +3,10 @@
 ## Project Summary:
 
 The customer for this project is Dr. Daniel Ragsdale. He is a professor in the Computer Science and Engineering department and research focus is Cyber Security. In this project we have to design a web-based system that can facilitate multiple things relating to the storage and access of research papers. A lot of research is done at Texas A&M University which leads to a great amount of papers being published in different areas. We are required to design a system that can allow us to search for different papers using a different search criteria. Some of these criteria are:
-#### * Search for paper similar to how you would search on Google.
-#### * OCR search on papers that are scanned copies of original work.
-#### * Search on different keywords (Networking, Cyber Security etc.).
-#### * Search using Author name
+* #### Search for paper similar to how you would search on Google.
+* #### OCR search on papers that are scanned copies of original work.
+* #### Search on different keywords (Networking, Cyber Security etc.).
+* #### Search using Author name
 
 The other requirement is to add papers by using a static pdf link of the paper. The user would provide the details of the paper such as the title, authors, whether the paper is a thesis, journal or conference paper and so on. We will use the pdf link to parse the document and store the keywords from the paper in a text file. This text file will then be used by our search engine. 
 
