@@ -1,0 +1,151 @@
+@mixin small {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1100px) {
+    @content;
+  }
+}
+
+body {
+  background-color: #efefef;
+}
+
+.mylogo {
+    position:fixed;
+    top: 25%;
+    color: maroon;
+    font-family: "Times New Roman";
+    font-style: italic;
+    font-size: 70px;
+    left: 40%;
+    width:100%;
+}
+ .mydiv {
+    position:fixed;
+    top: 50%;
+    left: 0%;
+    width:100%;
+  }
+
+.searchbar {
+  position: relative;
+  margin: 0 auto;
+  height: 60px;
+  min-width: 150px;
+  @include tablet {
+    width: 70%;
+    height: 40px;
+    overflow: hidden;
+  }
+  @include desktop {
+    width: 50%;
+  }
+}
+
+.searchbar--input,
+.searchbar--buttons {
+  @include tablet {
+    position: absolute;
+  }
+  top: 0;
+  right: 0;
+}
+
+.searchbar--input,
+.searchbar--select,
+.searchbar--submit {
+  border: none;
+  outline: none;
+}
+
+.searchbar--input {
+  width: 100%;
+  padding: 20px 0 20px 10px;
+  height: 60px;
+  @include tablet {
+    height: 40px;
+  }
+  font-size: 16px;
+}
+
+.searchbar--submit,
+.searchbar--select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.searchbar--submit {
+  //position: absolute;
+  //right: 0;
+  //top: 0;
+  @include small {
+    width: 36%;
+  }
+  width: 80px;
+  height: 50px;
+  @include tablet {
+    height: 30px;
+  }
+  padding: 0;
+  margin: 5px;
+  line-height: 32px;
+  display: block;
+  float: right;
+  font-size: 14px;
+  letter-spacing: .5px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.searchbar--select {
+  //position: absolute;
+  //right: 0;
+  @include small {
+    width: 100%;
+  }
+  height: 50px;
+  @include tablet {
+    height: 30px;
+  }
+  margin: 5px 0;
+  padding: 0 40px 0 20px;
+  border-radius: 0;
+  color: #8a8a8a;
+  letter-spacing: .25px;
+}
+
+.select-wrapper {
+  position: relative;
+  float: right;
+  @include small {
+    width: 60%;
+  }
+  &:after {
+    content: '>';
+    font: 18px "Consolas", monospace;
+    color: #b3b1b1;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 20px;
+    top: 19px;
+    @media (min-width: 768px) {
+      top: 10px;
+    }
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+  }
+}
