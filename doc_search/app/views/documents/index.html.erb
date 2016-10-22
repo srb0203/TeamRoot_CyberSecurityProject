@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="mylogo">
+  <p>ROOTS</p>
+</div>
+<div class="mydiv">
+  <div class="searchbar">
+    <input class="searchbar--input" placeholder="Search..." type="search">/</input>
+    <div class="searchbar--buttons">
+      <input class="searchbar--submit" type="submit" value="Search"></input>
+      <div class="select-wrapper">
+        <select class="searchbar--select">
+          <option disabled="disabled" selected="selected" value="All">Paper Tags</option>
+          <option value="Thesis-C">Thesis</option>
+          <option value="Security-C">Security</option>
+          <option value="Robotics-C">Robotics</option>
+          <option value="Sample-C">Sample</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+</br>
+
+<%= link_to 'Add New Document', new_document_path %>
