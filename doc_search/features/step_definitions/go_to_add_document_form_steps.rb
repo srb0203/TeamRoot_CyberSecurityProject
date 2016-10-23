@@ -29,7 +29,7 @@ end
 
 Then(/^I should see a text box to enter Type$/) do
   # Write code here that turns the phrase above into concrete actions
-  page.body.should have_selector("input[type=text][id='document_type']")
+  page.body.should have_selector("input[type=text][id='document_doctype']")
 end
 
 Then(/^I should see a text box to enter Category$/) do
