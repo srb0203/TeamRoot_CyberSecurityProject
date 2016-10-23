@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022222630) do
+ActiveRecord::Schema.define(version: 20161023223416) do
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
     t.string   "author"
-    t.string   "type"
+    t.string   "doctype"
     t.string   "category"
     t.text     "keywords"
     t.text     "pdflink"
