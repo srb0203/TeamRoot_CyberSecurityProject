@@ -1,3 +1,4 @@
+require 'open-uri'
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
@@ -25,10 +26,39 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     @document = Document.new(document_params)
+    open('Download.pdf', 'wb') do |file|
+        file << open(document_params['pdflink']).read
+    end
+    Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
+    File.delete('Download.pdf')
 
+    file_names = ['GeneratedText/Download.txt']
+
+    file_names.each do |file_name|
+      text = File.read(file_name)
+      new_contents = text.gsub(/[^0-9A-Za-z ]/, "")
+
+      # To write changes to the file, use:
+      File.open('GeneratedText/Parsed_Doc.txt', "w") {|file| file.puts new_contents }
+    end
+
+=begin
+    #reader = PDF::Reader.new(io)
+    mylist = []
+    reader.pages.each do |page|
+      mylist.push(page.text)
+    end
+    mylist.map!{ |element| element.gsub(/[^0-9A-Za-z ]/, '') }
+    render :text => mylist.inspect
+    path = "parsed.txt"
+    content = mylist
+    File.open(path, "w+") do |f|
+      f.write(content)
+    end
+=end
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        format.html { redirect_to @document, notice: 'Document parsed and saved in a text format' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }

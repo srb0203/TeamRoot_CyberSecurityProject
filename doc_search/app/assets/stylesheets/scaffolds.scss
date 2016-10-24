@@ -8,6 +8,11 @@ body {
 }
 
 /* line 29, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
 .mylogo {
   position: fixed;
   top: 25%;
@@ -18,6 +23,7 @@ body {
   left: 40%;
   width: 100%;
 }
+
 
 /* line 39, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .mydiv {
@@ -93,6 +99,17 @@ body {
   appearance: none;
 }
 
+.submitinput {
+  position: relative;
+  width: 30%;
+  background-color: maroon;
+  color: white;
+  padding: 14px 20px;
+  margin: 18px 0;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
 /* line 94, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar--submit {
   width: 80px;
