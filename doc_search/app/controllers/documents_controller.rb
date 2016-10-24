@@ -32,17 +32,17 @@ class DocumentsController < ApplicationController
     Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
     File.delete('Download.pdf')
 
+=begin
     file_names = ['GeneratedText/Download.txt']
 
     file_names.each do |file_name|
       text = File.read(file_name)
-      new_contents = text.gsub(/[^0-9A-Za-z ]/, "")
+      new_contents = text.gsub(/[^0-9A-Za-z]/, '')
 
       # To write changes to the file, use:
       File.open('GeneratedText/Parsed_Doc.txt', "w") {|file| file.puts new_contents }
     end
 
-=begin
     #reader = PDF::Reader.new(io)
     mylist = []
     reader.pages.each do |page|
