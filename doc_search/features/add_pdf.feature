@@ -1,4 +1,4 @@
-# feature/go_to_add_pdf_page.feature
+# feature/add_pdf.feature
 Feature: Redirect to another link when I want to add new document
 As a user
 I want to be able to add new document to the repository
@@ -15,7 +15,18 @@ And I should see a text box to enter Keywords
 And I should see a text box to enter Pdflink
 And I should see a button to create document
 
-Scenario: I should go to the Add document page
+Scenario: I should go to the home page
 Given I am on the New Document page 
 When I press Back
 Then I should go back to the home page
+
+Scenario: I should go the summary page
+Given I am on the New Document page to add new document 
+When I enter details of the document
+And I press Create Document
+Then I should go back to the summary page
+
+Scenario: I should be on the Add Document page
+Given I am on the New Document page to leave some text fields empty 
+When I do not enter all details of the document
+Then Create Document button should be disabled
