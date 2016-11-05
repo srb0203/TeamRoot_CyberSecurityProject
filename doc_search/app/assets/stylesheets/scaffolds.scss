@@ -1,21 +1,14 @@
-/*
-Following CSS was obtained from
-https://codepen.io/Vpugh/pen/RRjgwJ
-*/
-/* line 25, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 body {
   background-color: #efefef;
 }
-
-/* line 29, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
 .mylogo {
-  position: fixed;
-  top: 25%;
+  position: absolute;
+  top: 20%;
   color: maroon;
   font-family: "Times New Roman";
   font-style: italic;
@@ -24,24 +17,23 @@ input[type=submit]:hover {
   width: 100%;
 }
 
-
-/* line 39, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .mydiv {
-  position: fixed;
+  position: static;
   top: 50%;
   left: 0%;
   width: 100%;
 }
 
-/* line 46, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar {
-  position: relative;
+  position: absolute;
+  top: 70%;
   margin: 0 auto;
   height: 60px;
+  left: -15%;
   min-width: 150px;
 }
+
 @media (min-width: 768px) {
-  /* line 46, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar {
     width: 70%;
     height: 40px;
@@ -49,27 +41,24 @@ input[type=submit]:hover {
   }
 }
 @media (min-width: 1100px) {
-  /* line 46, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar {
     width: 50%;
   }
 }
 
-/* line 61, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar--input,
 .searchbar--buttons {
   top: 0;
   right: 0;
 }
+
 @media (min-width: 768px) {
-  /* line 61, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar--input,
   .searchbar--buttons {
     position: absolute;
   }
 }
 
-/* line 70, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar--input,
 .searchbar--select,
 .searchbar--submit {
@@ -77,21 +66,19 @@ input[type=submit]:hover {
   outline: none;
 }
 
-/* line 77, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar--input {
   width: 100%;
   padding: 20px 0 20px 10px;
   height: 60px;
   font-size: 16px;
 }
+
 @media (min-width: 768px) {
-  /* line 77, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar--input {
     height: 40px;
   }
 }
 
-/* line 87, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar--submit,
 .searchbar--select {
   cursor: pointer;
@@ -110,12 +97,11 @@ input[type=submit]:hover {
   border-radius: 2px;
   cursor: pointer;
 }
-/* line 94, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
+
 .searchbar--submit {
   width: 80px;
   height: 50px;
   padding: 0;
-  margin: 5px;
   line-height: 32px;
   display: block;
   float: right;
@@ -125,19 +111,16 @@ input[type=submit]:hover {
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 94, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar--submit {
     width: 36%;
   }
 }
 @media (min-width: 768px) {
-  /* line 94, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar--submit {
-    height: 30px;
+    height: 40px;
   }
 }
 
-/* line 117, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .searchbar--select {
   height: 50px;
   margin: 5px 0;
@@ -146,31 +129,29 @@ input[type=submit]:hover {
   color: #8a8a8a;
   letter-spacing: .25px;
 }
+
 @media (max-width: 767px) {
-  /* line 117, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar--select {
     width: 100%;
   }
 }
+
 @media (min-width: 768px) {
-  /* line 117, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .searchbar--select {
     height: 30px;
   }
 }
 
-/* line 134, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
 .select-wrapper {
   position: relative;
   float: right;
 }
 @media (max-width: 767px) {
-  /* line 134, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .select-wrapper {
     width: 60%;
   }
 }
-/* line 140, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
+
 .select-wrapper:after {
   content: '>';
   font: 18px "Consolas", monospace;
@@ -185,8 +166,8 @@ input[type=submit]:hover {
   position: absolute;
   pointer-events: none;
 }
+
 @media (min-width: 768px) {
-  /* line 140, /Users/Mishra/CSCE606/Project/TeamRoot_CyberSecurityProject/doc_search/app/assets/stylesheets/new_docs.scss */
   .select-wrapper:after {
     top: 10px;
   }
