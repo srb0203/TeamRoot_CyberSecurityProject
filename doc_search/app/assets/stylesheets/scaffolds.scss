@@ -52,6 +52,7 @@ input[type=submit]:hover {
   right: 0;
 }
 
+
 @media (min-width: 768px) {
   .searchbar--input,
   .searchbar--buttons {
@@ -109,6 +110,7 @@ input[type=submit]:hover {
   letter-spacing: .5px;
   border-radius: 4px;
   color: #fff;
+  background-color: #C0C0C0;
 }
 @media (max-width: 767px) {
   .searchbar--submit {
