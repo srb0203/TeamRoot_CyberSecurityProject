@@ -28,7 +28,7 @@ class DocumentsController < ApplicationController
     open('Download.pdf', 'wb') do |file|
         file << open(document_params['pdflink']).read
     end
-    Docsplit.extract_text('Download.pdf', :ocr => true, :output => 'GeneratedText')
+    Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
     File.delete('Download.pdf')
     @document = Document.new(document_params)
     
