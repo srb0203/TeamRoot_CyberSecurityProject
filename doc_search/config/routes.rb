@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :doc_search
+  get 'search', to: 'search#search'
   # Example resource route with options:
   #   resources :products do
   #     member do

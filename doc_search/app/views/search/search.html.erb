@@ -1,0 +1,30 @@
+<h1>Roots</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+
+<ul>
+  <% @documents.each do |document| %>
+    <li>
+      <h3>
+        <%= link_to document.try(:highlight).try(:title) ? document.highlight.title[0].html_safe : document.title,
+          controller: "documents",
+          action: "show",
+          id: document._id%>
+      </h3>
+      <% if document.try(:highlight).try(:keywords) %>
+        <% document.highlight.keywords.each do |snippet| %>
+          <p><%= snippet.html_safe %>...</p>
+          <% break %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', documents_path %>
