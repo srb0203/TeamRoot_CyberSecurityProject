@@ -6,23 +6,23 @@
   <p>ROOTS</p>
   <div class="mydiv">
     <div class="searchbar">
-      <input class="searchbar--input" placeholder="Search..." type="text"></input>
-      <div class="searchbar--buttons">
-        <input class="searchbar--submit" type="submit" value="Search"></input>
-        <!--<div class="select-wrapper">
-          <select class="searchbar--select">
-            <option disabled="disabled" selected="selected" value="All">Paper Tags</option>
-            <option value="Thesis-C">Thesis</option>
-            <option value="Security-C">Security</option>
-            <option value="Robotics-C">Robotics</option>
-            <option value="Sample-C">Sample</option>
-          </select> -->
+      <form action="/search" accept-charset="UTF-8" method="get">
+        <input class="searchbar--input" placeholder="Search..." type="text" name="q" id="q"></input>
+        <div class="searchbar--buttons">
+          <input class="searchbar--submit" type="submit" value="Search"></input>
+          <!--<div class="select-wrapper">
+            <select class="searchbar--select">
+              <option disabled="disabled" selected="selected" value="All">Paper Tags</option>
+              <option value="Thesis-C">Thesis</option>
+              <option value="Security-C">Security</option>
+              <option value="Robotics-C">Robotics</option>
+              <option value="Sample-C">Sample</option>
+            </select>
+          </div> -->
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
-
-</br>
 
 <%= link_to 'Add New Document', new_document_path %>
