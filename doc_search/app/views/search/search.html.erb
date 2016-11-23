@@ -1,0 +1,36 @@
+
+<div>
+  <a href="/documents" class = "searchlogo">ROOTS</a>
+
+  <div class = "searchpage-bar">
+    <%= form_for search_path, method: :get do |f| %>
+      <p>
+        <%= text_field_tag :q, params[:q], options = {placeholder:"Search..."}%>
+        <div class="searchpage-button">
+          <%= submit_tag "Search", name: nil, class: "searchpage-submit" %>
+        </div>
+      </p>
+    <% end %>
+
+    <ul>
+      <% @documents.each do |document| %>
+        <li>
+          <h3>
+            <%= link_to document.try(:highlight).try(:title) ? document.highlight.title[0].html_safe : document.title,
+              controller: "documents",
+              action: "show",
+              id: document._id%>
+          </h3>
+          <% if document.try(:highlight).try(:keywords) %>
+            <% document.highlight.keywords.each do |snippet| %>
+              <p><%= snippet.html_safe %>...</p>
+              <% break %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div> 
+
