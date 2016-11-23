@@ -133,7 +133,7 @@
         null,
         null,
         1,
-        0,
+        2,
         null,
         null,
         null,
@@ -179,20 +179,20 @@
         1
       ],
       "/home/ubuntu/workspace/doc_search/app/controllers/search_controller.rb": [
+        1,
+        null,
+        1,
+        2,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        null,
+        2,
+        null,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1479872106
+    "timestamp": 1479941970
   },
   "RSpec": {
     "coverage": {
@@ -387,6 +387,6 @@
         1
       ]
     },
-    "timestamp": 1479872087
+    "timestamp": 1479922104
   }
 }
