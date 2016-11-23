@@ -1,388 +1,48 @@
-The pdf995 suite of products - Pdf995, PdfEdit995, and Signature995 - is a complete solution for your document publishing needs. It
-provides ease of use, flexibility in format, and industry-standard security- and all at no cost to you.
-Pdf995 makes it easy and affordable to create professional-quality documents in the popular PDF file format. Its easy-to-use interface
-helps you to create PDF files by simply selecting the "print" command from any application, creating documents which can be viewed
-on any computer with a PDF viewer. Pdf995 supports network file saving, fast user switching on XP, Citrix/Terminal Server, custom
-page sizes and large format printing. Pdf995 is a printer driver that works with any Postscript to PDF converter. The pdf995 printer
-driver and a free Converter are available for easy download.
-PdfEdit995 offers a wealth of additional functionality, such as: combining documents into a single PDF; automatic link insertion;
-hierarchical bookmark insertion; PDF conversion to HTML or DOC (text only); integration with Word toolbar with automatic table of
-contents and link generation; autoattach to email; stationery and stamping.
-Signature995 offers state-of-the-art security and encryption to protect your documents and add digital signatures.
-
-The Pdf995 Suite offers the following features, all at no cost:
-Automatic insertion of embedded links
-Hierarchical Bookmarks
-Support for Digital Signatures
-Support for Triple DES encryption
-Append and Delete PDF Pages
-Batch Print from Microsoft Office
-Asian and Cyrillic fonts
-Integration with Microsoft Word toolbar
-PDF Stationery
-Combining multiple PDF's into a single PDF
-Three auto-name options to bypass Save As dialog
-Imposition of Draft/Confidential stamps
-Support for large format architectural printing
-Convert PDF to JPEG, TIFF, BMP, PCX formats
-Convert PDF to HTML and Word DOC conversion
-Convert PDF to text
-Automatic Table of Contents generation
-Support for XP Fast User Switching and multiple user
-sessions
-Standard PDF Encryption (restricted printing, modifying,
-copying text and images)
-Support for Optimized PDF
-Support for custom page sizes
-
-Option to attach PDFs to email after creation
-Automatic text summarization of PDF
-documents
-Easy integration with document management
-and Workflow systems
-n-Up printing
-Automatic page numbering
-Simple Programmers Interface
-Option to automatically display PDFs after
-creation
-Custom resizing of PDF output
-Configurable Font embedding
-Support for Citrix/Terminal Server
-Support for Windows 2003 Server
-Easy PS to PDF processing
-Specify PDF document properties
-Control PDF opening mode
-Can be configured to add functionality to
-Acrobat Distiller
-Free: Creates PDFs without annoying
-watermarks
-Free: Fully functional, not a trial and does not
-expire
-Over 5 million satisfied customers
-Over 1000 Enterprise Customers worldwide
-
-Please visit us at www.pdf995.com to learn more.
-This document illustrates several features of the Pdf995 Suite of Products.
-
-Introduction
-
-A
-PP
-R
-O
-VE
-D
-
-The Virtual Reality Modeling Language (VRML) is a language for describing multiparticipant interactive simulations -- virtual worlds networked via the global Internet and
-hyperlinked with the World Wide Web. All aspects of virtual world display, interaction
-and internetworking can be specified using VRML. It is the intention of its designers that
-VRML become the standard language for interactive simulation within the World Wide
-Web.
-The first version of VRML allows for the creation of virtual worlds with limited
-interactive behavior. These worlds can contain objects which have hyperlinks to other
-worlds, HTML documents or other valid MIME types. When the user selects an object
-with a hyperlink, the appropriate MIME viewer is launched. When the user selects a link
-to a VRML document from within a correctly configured WWW browser, a VRML
-viewer is launched. Thus VRML viewers are the perfect companion applications to
-standard WWW browsers for navigating and visualizing the Web. Future versions of
-VRML will allow for richer behaviors, including animations, motion physics and realtime multi-user interaction.
-This document specifies the features and syntax of Version 1.0 of VRML.
-
-VRML Mission Statement
-
-The history of the development of the Internet has had three distinct phases; first, the
-development of the TCP/IP infrastructure which allowed documents and data to be stored
-in a proximally independent way; that is, Internet provided a layer of abstraction between
-data sets and the hosts which manipulated them. While this abstraction was useful, it was
-also confusing; without any clear sense of "what went where", access to Internet was
-restricted to the class of sysops/net surfers who could maintain internal cognitive maps of
-the data space.
-Next, Tim Berners-Lee’s work at CERN, where he developed the hypermedia system
-known as World Wide Web, added another layer of abstraction to the existing structure.
-This abstraction provided an "addressing" scheme, a unique identifier (the Universal
-Resource Locator), which could tell anyone "where to go and how to get there" for any
-piece of data within the Web. While useful, it lacked dimensionality; there’s no there
-there within the web, and the only type of navigation permissible (other than surfing) is
-by direct reference. In other words, I can only tell you how to get to the VRML Forum
-home page by saying, "http://www.wired.com/", which is not human-centered data. In
-
-fact, I need to make an effort to remember it at all. So, while the World Wide Web
-provides a retrieval mechanism to complement the existing storage mechanism, it leaves
-a lot to be desired, particularly for human beings.
-
-A
-PP
-R
-O
-VE
-D
-
-Finally, we move to "perceptualized" Internetworks, where the data has been sensualized,
-that is, rendered sensually. If something is represented sensually, it is possible to make
-sense of it. VRML is an attempt (how successful, only time and effort will tell) to place
-humans at the center of the Internet, ordering its universe to our whims. In order to do
-that, the most important single element is a standard that defines the particularities of
-perception. Virtual Reality Modeling Language is that standard, designed to be a
-universal description language for multi-participant simulations.
-These three phases, storage, retrieval, and perceptualization are analogous to the human
-process of consciousness, as expressed in terms of semantics and cognitive science.
-Events occur and are recorded (memory); inferences are drawn from memory
-(associations), and from sets of related events, maps of the universe are created (cognitive
-perception). What is important to remember is that the map is not the territory, and we
-should avoid becoming trapped in any single representation or world-view. Although we
-need to design to avoid disorientation, we should always push the envelope in the kinds
-of experience we can bring into manifestation!
-This document is the living proof of the success of a process that was committed to being
-open and flexible, responsive to the needs of a growing Web community. Rather than reinvent the wheel, we have adapted an existing specification (Open Inventor) as the basis
-from which our own work can grow, saving years of design work and perhaps many
-mistakes. Now our real work can begin; that of rendering our noospheric space.
-
-History
-
-VRML was conceived in the spring of 1994 at the first annual World Wide Web
-Conference in Geneva, Switzerland. Tim Berners-Lee and Dave Raggett organized a
-Birds-of-a-Feather (BOF) session to discuss Virtual Reality interfaces to the World Wide
-Web. Several BOF attendees described projects already underway to build three
-dimensional graphical visualization tools which interoperate with the Web. Attendees
-agreed on the need for these tools to have a common language for specifying 3D scene
-description and WWW hyperlinks -- an analog of HTML for virtual reality. The term
-Virtual Reality Markup Language (VRML) was coined, and the group resolved to begin
-specification work after the conference. The word ’Markup’was later changed to
-’Modeling’to reflect the graphical nature of VRML.
-
-A
-PP
-R
-O
-VE
-D
-
-Shortly after the Geneva BOF session, the www-vrml mailing list was created to discuss
-the development of a specification for the first version of VRML. The response to the list
-invitation was overwhelming: within a week, there were over a thousand members. After
-an initial settling-in period, list moderator Mark Pesce of Labyrinth Group announced his
-intention to have a draft version of the specification ready by the WWW Fall 1994
-conference, a mere five months away. There was general agreement on the list that, while
-this schedule was aggressive, it was achievable provided that the requirements for the
-first version were not too ambitious and that VRML could be adapted from an existing
-solution. The list quickly agreed upon a set of requirements for the first version, and
-began a search for technologies which could be adapted to fit the needs of VRML.
-The search for existing technologies turned up a several worthwhile candidates. After
-much deliberation the list came to a consensus: the Open Inventor ASCII File Format
-from Silicon Graphics, Inc. The Inventor File Format supports complete descriptions of
-3D scenes with polygonally rendered objects, lighting, materials, ambient properties and
-realism effects. A subset of the Inventor File Format, with extensions to support
-networking, forms the basis of VRML. Gavin Bell of Silicon Graphics has adapted the
-Inventor File Format for VRML, with design input from the mailing list. SGI has publicly
-stated that the file format is available for use in the open market, and have contributed a
-file format parser into the public domain to bootstrap VRML viewer development.
-
-A Graphical Representation of Inverse VRML Uptake
-90
-140
-
-Programmers
-
-120
-
-QA
-
-Musicians
-Politicians
-
-70
-
-Other
-
-Dentists
-Inverse log usage
-
-100
-
-60
-
-A
-PP
-R
-O
-VE
-D
-80
-60
-
-50
-40
-30
-
-40
-
-20
-
-20
-
-10
-
-Days after download
-
-CF
-80.0
-61.4
-49.8
-41.9
-36.2
-31.8
-28.4
-25.6
-23.4
-21.5
-19.9
-18.5
-17.3
-16.2
-15.1
-
-The number 1 represents an engineer with an "average" cube *
-
-Min
-149.12
-114.43
-92.846
-78.102
-67.402
-59.275
-52.9
-47.774
-43.543
-40.001
-37
-34.409
-32.154
-30.178
-28.202
-
-fsw
-
-0
-10
-20
-30
-40
-50
-60
-70
-80
-90
-100
-110
-120
-130
-140
-
-Air
-
-180
-120
-80.0
-57.0
-40.0
-30.0
-24.0
-19.0
-16.0
-13.0
-10.0
-8.0
-
-EANx EANx
-32% 36%
-
-147.0
-92.0
-65.0
-49.0
-37.0
-30.0
-25.0
-20.0
-17.0
-n/a
-
-192.0
-123.0
-79.0
-59.0
-45.0
-35.0
-29.0
-n/a
-n/a
-n/a
-
-140
-
-130
-
-110
-
-100
-
-90
-
-80
-
-Days after download
-
-Change the number in red below to adjust for download rate and/or bandwidth.
-1
-
-70
-
-60
-
-0
-
-50
-
-140
-
-120
-
-130
-
-100
-
-110
-
-90
-
-80
-
-70
-
-60
-
-50
-
-40
-
-30
-
-20
-
-0
-
-10
-
-0
-
-120
-
-Inverse usage
-
-Artists
-
-80
-
-Technical Writers
+Gavin Garcia - 3577337, Melissa Cortes - 3217823, Leandro Ricardo - 2892107, Max Tojeiro - 2932206, Rommel Rodriguez - 2352669, Samuel Soto - 2342980
+Wi-Fi Security: Wireless Network Encryption EEL 4789 - Ethical Hacking
+Abstract We will be analyzing a variety of different network encryptions and discussing how to
+breach said networks. We aspire to create an accurate and useful analysis of network standards and will suggest ways to improve these networks. Improvements proposed will be made using thorough research into the subject area. Each networking encryption standard will also be thoroughly discussed in the following paper.
+Introduction In this paper we are going to look at a few of the different network related securities that
+have come along since the Introduction of the Wireless Local Area Network (WLAN) and their various weaknesses.
+Mainly we will be discussing topics varying from the open encryption to non-encryption methods which may depend on software encryption (https, etc...) to protect data. As well as the easily broken Wired Equivalent Privacy (WEP) and then the WiFi Protected Access (WPA) followed by the WiFi Protected Access II (WPA2) we are going to explore and discuss proper procedures for maintaining high levels of security in order to keep the user protected.
+Wired Equivalent Privacy (WEP) The first and original security for wireless access points that was created in 1997. In
+2001 however it was discovered that WEP had serious flaws, those flaws being that a passive attack could be launched to decrypt traffic based on statistical analysis of the data stream, active attacks could be launched to inject malicious traffic from an unauthorized workstation, or to decrypt traffic based on simply tricking the access point. This was all possible as it used a stream cipher. Stream ciphers operate by expanding a specific key into an extremely long, random, false key. The sender and receiver receive similar keys then they’re converted to plain text. As long as both match, the data is secure. Decrypting said key though is something now of child’s play however.
+WEP is generally no longer used anywhere as it has been far depreciated. One of the reasons that wep is so easy to crack is that it uses a manually entered 40 or 104-bit encryption key. This is actually one of the first things improved upon in the WPA network. A standard WEP key normally concatenates a 24-bit initialization vector to form the RC4 key used
+
+for confidentiality. The main problem with the encryption key is that it is manually entered unlike tkip which puts a temporary key for each packet of data.
+One way to start breaching a WEP security network, is to use a packet-sniffing program on linux. It is better to use linux than windows because it can actually sniff WEP packets. One of the most commonly-used programs to accomplish this is backtrack. Through this program and several commands it is possible to find hidden SSID’s and the type of encryption each network uses.
+Wi-Fi Protected Access (WPA) WPA is not its own form of new security. It was created to be a wrapper to WEP to
+safeguard WEP from the flaws that were found with it. It was never meant to be its own defining security standard, just a stop-gap until WPA2 was ready for deployment. WPA works in two secure modes. One being WPA-PSK and the other being WPA-Enterprise. The former is simply a pre-shared key, while the latter requires a RADIUS server and can be combined with an EAP (Extensible Authentication Protocol). WPA also generally uses TKIP, or Temporal Key Integrity Protocol, it is not an encryption protocol but it does make sure every packet of data is sent with a unique key, something that WEP desperately lacked. However, as most consumers simply use WPA-PSK, brute forcing the passcode was a quick and effective way of retrieving the specific user key. WPA is somewhat still used today in older systems that have not been migrated over to WPA2 mostly due to owner complacency.
+There are flaws associated with WPA. In order to recognize these flaws it is important to understand the software capabilities. WPA includes a message integrity check. This is designed to prevent an attacker from capturing, altering and/or re-sending data packets. WPA uses a message integrity check algorithm called Michael to verify the integrity of the packets. However, Michael is not as strong as the algorithm used in WPA2. WPA relies on outdated weaknesses in WEP that can be exploited only for the TKIP algorithm and the limitations of Michael to retrieve the keystream from short packets to use for re-injection. This very WPA quality is what fuels one of its major security weaknesses. The flaw can only decrypt short packets with mostly known contents, such as ARP messages. The attack requires Quality of Service to be enabled, which allows packet prioritization as defined. “The flaw does not lead to recovery of a key, but only to recovery of a keystream that was used to encrypt a particular packet, and which can be reused as many as seven times to inject arbitrary data of the same packet length to a wireless client.”
+WPA and 802.11i provide for a Pre-Shared Key (PSK) as an alternative to 802.1X based key establishment. When a PSK is used instead of 802.1X, the PSK is the Pairwise Master Key
+
+(PMK) that is used to drive the 4-way handshake and the whole Pairwise Transient Key (PTK) keying hierarchy. Anyone with knowledge of the PSK can determine any PTK in the ESS through passive sniffing of the wireless network, listening for key exchange data frames. Also, if a weak passphrase is used, for example, a short passphrase, an offline dictionary attack can readily guess the PSK. Since the common usage will be a single PSK for the ESS, once this is learned by the attacker, the attacker is now a member of the ESS, and the whole ESS is compromised. The attacker can now read and forge any traffic in the ESS.
+802.11i standard (WPA2) WPA2 is the proper follow up to WEP. It runs in the same modes as WPA, but instead of
+using TKIP, it uses CCMP for cryptographic encapsulation. CCMP was designed to have data completely confidential; this is based upon the Counter Mode with CCM (CBC-MAC) of the AES encryption standard. This is used to replace TKIP for message confidentiality and makes WPA lose many of its flaws. WPA2 is what is generally used now by default in most if not all consumer networks. It is the most secure, mainstream, security measure an average consumer can deploy. However its largest weak point would be the use of an easy passkey like “password” or “123456.”
+In April 2003, the Wi-Fi Alliance introduced WPA based on draft 3 of the IEEE 802.11i amendment which was designed to replace the much weaker WEP encryption without requiring hardware replacements. At the time WPA used strong cryptography support from TKIP based on the RC 4 cipher. By leveraging the RC 4 cipher, the IEEE 802.11i task group was able to improve the security on legacy networks until the IEEE 802.11i amendment was completed. Although there have been no catastrophic security breaches reported on the WPA-TKIP protocol, it was only intended provide enough security for 5 years while organizations transitioned to the full IEEE 802.11i security mechanism.
+WPA2 adopted many of the same encryptions methods used for WPA, but in addition implements the mandatory elements of IEEE 802.11i. WPA2 improves the security of Wi-Fi connections by requiring the use of stronger wireless encryption than what WPA requires. Specifically, WPA2 does not allow use of TKIP which has known security holes, but instead introduces CCMP, a new AES-based encryption mode with strong security. CCMP is an enhanced data cryptographic encapsulation mechanism designed for data confidentiality and addresses the vulnerabilities present in WPA.
+WPA was designed to work with wireless hardware produced prior to the introduction of
+
+the WPA protocol, but the newer WPA2 is not supported on older hardware products. Beginning in 2004, certification by the Wi-Fi Alliance began and as of March 13, 2006 WPA2 is mandatory for all new devices to bear the Wi-Fi trademark. The current wireless security standard today is WPA2 which uses an encryption device that encrypts the network with a 256-bit key, improving security over WEP and WPA by having a longer key length.
+Non-Encryption Methods Unencrypted networks are usually found in coffee shops, libraries, airports, hotels,
+universities, and other public places and are convenient, free access points for users within their confines to be granted internet access. This complete lack of security makes it very easy to setup the network on a user’s device, but at the same time, if the user is not using an encrypted site, their data can be easily read with something like WireShark which is completely free and works on all operating systems. This can lead to fraud and other financial complications for the user.
+Service set identifier or more commonly knows as SSID, SSID is what your network uses to identify itself to local devices. If you prevent your network from broadcasting it’s SSID to all local devices, said devices will not be able to see it readily available. Hence this in terms allows local users from being able to access the network without knowing it’s SSID first. This however has many shortcomings as one can easily find an SSID without having it be broadcasted by the network.
+Another non-encryption method is MAC ID filtering, this form of filtering allows you to specify a set MAC address from your device and allow it on the unsecured network. Since MAC addresses are unique this can be considered a good precaution to have on smaller networks. However due to a criminal possibly sniffing out a valid MAC address and then using MAC address spoofing, criminals can ultimately pretend to be a pre-approved MAC address and gain access to your network.
+Static IP addressing allows you to filter out casual users by making a technical barrier a requirement, this barrier being that the user must assign himself a static ip. However this provides little to no protection as would be hackers, know how to do such things as well as they know breathing and sleeping.
+Conclusion There are many ways for data to be compromised and in order to reduce the risk of
+delicate information falling into the wrong hands. We must follow proper procedures that help
+
+reduce the chances of this occurring. This can be accomplished by using the safest network encryption currently available, In this case said encryption is WPA2. WPA2 contains a crucial flaw though, it’s users password. For WPA2 to function correctly users must must take the extra time to set up their network with a strong password. Once this is done it can make it almost impossible for potential hackers to break into said private networks, hence preserving your information from outside access.
+Although there isn’t a way to ever make data 100% secure, whether it be digital or analogue, you can make it as difficult to obtain by others as possible. This combined with user knowledge goes a long way in the digital security world and in other aspects of our life as well.
+References 1. Wi-Fi Security: Cracking WPA With CPUs, GPUs, And The Cloud http://www.tomshardware.com/reviews/wireless-security-hack,2981-6.html 2. EC Council . Network Defense: Security Policy and Threats. Cengage Learning, 2010. eBook.
+
+3. Major Wireless Network Security Breach – Wi-Fi Protected Setup (WPS Bug) PIN Brute Force Vulnerability – Reaver http://www.safegadget.com/72/major-wireless-networkvulnerability-wps-bug/
+4. Phifer, Lisa. An Introduction to Wireless Security http://searchsecurity.techtarget.com/feature/An-introduction-to-wireless-security 5. Edney, Jon, and William A. Arbaugh. Real 802.11 Security: Wi-Fi Protected Access and 802.11i. Addison-Wesley Professional, 2005. Print.
+6. "Simple Wireless Security For Home". Retrieved 2010-03-10. 7. George Ou, “The six dumbest ways to secure a wireless LAN", March 2005, ZDNet
+8. Wright, Joshua. "Explaining WPA2." Network World. N.p., 11 Sept. 2006. Web. 07 Feb. 2014. <http://www.networkworld.com/columnists/2006/091106-wireless-security.html>.
+9. "Wi-Fi Protected Access." Wikipedia. Wikimedia Foundation, n.d. Web. 07 Feb. 2014.
+<http://en.wikipedia.org/wiki/Wi-Fi_Protected_Access#WPA2>.
+10. "A Brief History of Wireless Security | Security Uncorked." Security Uncorked. N.p., n.d. Web. 7 Feb. 2014. <http://securityuncorked.com/2008/08/history-of-wireless-security/>
+11. "Understanding WEP Weaknesses." - For Dummies. N.p., n.d. Web. 7 Feb. 2014. <http://www.dummies.com/how-to/content/understanding-wep-weaknesses.html>.
 
 

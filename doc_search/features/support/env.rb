@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start 'rails'
 require 'capybara'
 require 'cucumber/rails'
 #require 'capybara/cucumber'
