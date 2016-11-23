@@ -25,13 +25,24 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-    open('Download.pdf', 'wb') do |file|
-        file << open(document_params['pdflink']).read
+
+    filename = document_params['pdflink']
+    len = filename.length
+    if(filename[len-3..len] == "pdf")
+      open('Download.pdf', 'wb') do |file|
+        file << open(filename).read
+      end
+      Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
+      File.delete('Download.pdf')
+    elsif(filename[len-3..len] == "png")
+      open('Download.png', 'wb') do |file|
+        file << open(filename).read
+      end
+      input_image = 'Download.png'
+      `tesseract #{input_image} GeneratedText/Download -l eng`
+      File.delete('Download.png')
     end
-    Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
-    File.delete('Download.pdf')
-    @document = Document.new(document_params)
-    
+    @document = Document.new(document_params) 
     respond_to do |format|
       if @document.save
         format.html { redirect_to @document, notice: 'Document parsed and saved in a text format' }
