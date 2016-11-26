@@ -17,7 +17,7 @@ And I should see a button to create document
 
 Scenario: I should go to the home page
 Given I am on the New Document page 
-When I press Back
+When I press Home
 Then I should go back to the home page
 
 Scenario: I should go the summary page

@@ -57,9 +57,9 @@ Given(/^I am on the New Document page$/) do
   visit path_to_new_document
 end
 
-When(/^I press Back$/) do
+When(/^I press Home$/) do
   # Write code here that turns the phrase above into concrete actions
-  click_link 'Back'
+  click_link 'Home'
 end
 
 Then(/^I should go back to the home page$/) do
