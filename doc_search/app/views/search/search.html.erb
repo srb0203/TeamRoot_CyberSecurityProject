@@ -1,6 +1,8 @@
 
 <div>
   <a href="/documents" class = "searchlogo">ROOTS</a>
+  <br><br><br><br>
+  <%= link_to 'Add New Document', new_document_path %>
 
   <div class = "searchpage-bar">
     <%= form_for search_path, method: :get do |f| %>
