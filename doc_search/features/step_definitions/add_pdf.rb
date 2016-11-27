@@ -122,3 +122,22 @@ Then(/^Create Document button should be disabled$/) do
   page.should have_css("input[type=submit][value='Create Document'][disabled=disabled]")
   
 end
+
+When(/^I enter invalid link for the add_pdf page$/) do
+  # Write code here that turns the phrase above into concrete actions
+  find(:css, "input[id$='document_title']").set("Wifi security : wirless network encryption")
+  # add Author
+  find(:css, "input[id$='document_author']").set("Gavin Garcia")
+  # add document type
+  find(:css, "input[id$='document_doctype']").set("research paper")
+  # add category
+  find(:css, "input[id$='document_category']").set("cyber security")
+  # add keywords
+  fill_in 'document_keywords', with: "wireless network encryption"
+  # add pdf link
+  fill_in 'document_pdflink', with: "junklink"
+end
+
+Then(/^I should get an error message that the document cannot be added because of the invalid link$/) do
+  page.should have_content "Invalid Link! Unable to add document"
+end

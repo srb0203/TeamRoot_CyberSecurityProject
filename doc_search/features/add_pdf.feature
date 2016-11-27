@@ -30,3 +30,8 @@ Scenario: I should be on the Add Document page
 Given I am on the New Document page to leave some text fields empty 
 When I do not enter all details of the document
 Then Create Document button should be disabled
+
+Scenario: I should get an error message if i try to add document by providing an invalid link   
+Given I am on the New Document page to add new document
+When I enter invalid link for the add_pdf page
+Then I should get an error message that the document cannot be added because of the invalid link
