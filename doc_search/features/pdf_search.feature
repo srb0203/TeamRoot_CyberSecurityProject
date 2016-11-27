@@ -13,3 +13,8 @@ Given I am on the root search home page
 When I enter keywords to search in the text box and press search
 Then I should be on the search results page
 And I should see a list of documents that match the searched keywords
+
+Scenario: I should see a message that 0 results are found
+Given I am on the root search home page 
+When I dont enter keywords in the text box and press search
+And I should see a message that 0 results are found
