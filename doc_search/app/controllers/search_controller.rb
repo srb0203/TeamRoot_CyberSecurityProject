@@ -4,7 +4,7 @@ class SearchController < ApplicationController
 	  if params[:q].nil?
 	    @documents = []
 	  else
-	    @documents = Document.search params[:q]
+	    @documents = Document.search(params[:q]).page(params[:page]).per(10)
 	  end
 	end
 

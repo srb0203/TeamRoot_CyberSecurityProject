@@ -1,49 +1,128 @@
-body {
-  background-color: #efefef;
+.wrapper {
+  padding: 0em;
+  margin: 0 auto;
+  width: 990px;
+  height: 100%;
+}
+
+.sb-item {
+  height: 65px;
+  list-style-type: none;
+  margin: 0 auto;
+  padding-top: 24px;
+}
+
+.list-span a:link{
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.list-span a:hover {
+  text-decoration: underline;
+}
+
+.sb-links-list {
+  margin-bottom: 60px;
+}
+
+.first-link{
+  font-size: 2.5em;
+  font-style: italic;
+  background-color: Wheat;
+  padding-top: 10px;
+}
+
+#logo {
+  color: black;
+ }
+
+.list-span{
+  padding-left: 45px;
+  padding-top: 8px;
+}
+
+aside {
+  float:left;
+  width: 220px;
+  height: 100%;
+  background-color: LightGrey;
+}
+ 
+main {
+  float: right;
+  width: 770px;
+  height: 100%;
+  background-color: MintCream;
+}
+
+#search {
+  padding: 10px 10px 20px 10px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+ 
+#q {
+  width: 650px;
+  border: 1px solid #2f5bb7; border-right:0px;
+  border-top-left-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+  background-color: Lavender;
+}
+ 
+#search-submit {
+  margin: 0;
+  margin-left: -6px;
+  height: 43px;
+  padding: 5px 15px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3; border-right:0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+  border-top-right-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+}
+
+#search-submit:hover {
+  background-color:#fafafa;
+  color:#207cca;
+}
+
+.search-results-list{
+  margin: 0px 10px 10px 20px;
+  list-style: none;
+}
+
+.list-results{
+  padding: 10px;
+}
+
+.document-link{
+  font-size: 1em;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.document-link a:link {
+  background-color:transparent; 
+  text-decoration:none
+}
+
+.document-link a:hover {
+  background-color:transparent; 
+  text-decoration:underline;
+}
+
+.text-snippet{
+  color: #545454;
 }
 
 em {
+  font-weight: bold;
   background: yellow;
-}
-
-.searchlogo {
-  position: absolute;
-  top: 3%;
-  color: maroon;
-  font-family: "Times New Roman";
-  font-style: italic;
-  font-size: 40px;
-  left: 1%;
-  width: 100%;
-  text-decoration: none
-}
-
-.searchpage-bar{
-  position: fixed;
-  top: 1%;
-  left: 15%;
-  width: 70%;
-}
-
-.searchpage-button {
-  position: fixed;
-  top: 3.5%;
-  right: 15%;
-}
-
-.searchpage-submit{
-  height: 42px;
-  width: 80px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 0;
-  line-height: 32px;
-  display: block;
-  float: right;
-  font-size: 14px;
-  letter-spacing: .5px;
-  border-radius: 4px;
-  color: #fff;
-  background-color: #C0C0C0;
 }

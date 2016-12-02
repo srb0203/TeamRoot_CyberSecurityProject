@@ -20,18 +20,27 @@ class Document < ActiveRecord::Base
 	  __elasticsearch__.search(
 	    {
 	      query: {
-	        multi_match: {
-	          query: query,
-	          fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
-	        }
+	      	filtered: {
+	      	  filter: {
+                bool: {
+                    must: {exists: {field: 'title'}},
+                    must_not: {term: {'title': ''}}
+                }
+              },
+              query:{
+              	multi_match: {
+	              query: query,
+	              fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+	            }
+              }
+	    	}
 	      },
 	      highlight: {
 	        pre_tags: ['<em>'],
 	        post_tags: ['</em>'],
 	        fields: {
 	          title: {},
-	          author: {},
-	          keywords: {}
+	          keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
 	        }
 	      }
 	    }

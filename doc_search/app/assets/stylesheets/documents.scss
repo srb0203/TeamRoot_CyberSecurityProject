@@ -1,3 +1,28 @@
-// Place all the styles related to the Documents controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.Header{
+	position:absolute;
+	padding-top: 10px;
+	padding-left: 5px;
+}
+
+a:link{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+#myLogo{
+	padding-top: 180px;
+	text-align: center;
+	font-size: 3.5em;
+	font-style: italic;
+	color: black;
+	font-weight: normal;
+}
+
+#search{
+	padding: 10px;
+	margin: 0 auto;
+	width: 750px;
+}

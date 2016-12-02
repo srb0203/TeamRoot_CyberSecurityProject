@@ -1,38 +1,51 @@
-
-<div>
-  <a href="/documents" class = "searchlogo">ROOTS</a>
-  <br><br><br><br>
-  <%= link_to 'Add New Document', new_document_path %>
-
-  <div class = "searchpage-bar">
-    <%= form_for search_path, method: :get do |f| %>
-      <p>
-        <%= text_field_tag :q, params[:q], options = {placeholder:"Search..."}%>
-        <div class="searchpage-button">
-          <%= submit_tag "Search", name: nil, class: "searchpage-submit" %>
-        </div>
-      </p>
-    <% end %>
-
-    <ul>
-      <% @documents.each do |document| %>
-        <li>
-          <h3>
-            <%= link_to document.try(:highlight).try(:title) ? document.highlight.title[0].html_safe : document.title,
-              controller: "documents",
-              action: "show",
-              id: document._id%>
-          </h3>
-          <% if document.try(:highlight).try(:keywords) %>
-            <% document.highlight.keywords.each do |snippet| %>
-              <p><%= snippet.html_safe %>...</p>
-              <% break %>
-            <% end %>
-          <% end %>
+<div class="container">
+  <div class="wrapper">
+    <aside>
+      <ul class="sb-links-list">
+        <li class="sb-item first-link">
+          <span class = "list-span"><a href="/documents" id= "logo">ROOTS</a></span>
         </li>
-      <% end %>
-    </ul>
-  </div>
+        <li class="sb-item second-link">
+          <span class = "list-span"><%= link_to 'Add New Document', new_document_path %></span>
+        </li>
+      </ul>
+    </aside>
 
-</div> 
+    <main>
+
+      <div id = "search">
+        <%= form_for search_path, method: :get do |f| %>
+          <%= text_field_tag :q, params[:q], options = {placeholder:"Search..."}%>
+          <%= submit_tag "Search", name: nil, id: "search-submit" %>
+        <% end %>
+      </div>
+
+      <div class="search-results">
+      <p id="notice"><%= notice %></p>
+      <ul class = "search-results-list">
+        <% @documents.each do |document| %>
+          <li class= "list-results">
+            <h3 class="document-link">
+              <%= link_to document.try(:highlight).try(:title) ? document.highlight.title[0].html_safe : document.title,
+                controller: "documents",
+                action: "show",
+                id: document._id%>
+            </h3>
+            <% if document.try(:highlight).try(:keywords) %>
+              <% document.highlight.keywords.each do |snippet| %>
+                <p class="text-snippet"><%= snippet.html_safe %>...</p>
+                <% break %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= paginate @documents %>
+
+      </div>
+    </main> 
+
+  </div><!-- END of wrapper-->
+</div>
 
