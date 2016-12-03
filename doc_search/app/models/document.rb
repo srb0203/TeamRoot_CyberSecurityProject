@@ -3,6 +3,7 @@ require 'elasticsearch/model'
 class Document < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+
   validates_format_of :title, :with => /\A[a-zA-Z0-9\s:]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
@@ -28,12 +29,12 @@ class Document < ActiveRecord::Base
   def self.search(query)
 	  __elasticsearch__.search(
 	    {
-          query:{
-          	multi_match: {
-              query: query,
-              fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
-            }
-          },
+        query:{
+        	multi_match: {
+            query: query,
+            fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+          }
+        },
 	      highlight: {
 	        pre_tags: ['<em>'],
 	        post_tags: ['</em>'],
@@ -46,7 +47,7 @@ class Document < ActiveRecord::Base
 	  )
 	end
 
-	settings index: { number_of_shards: 1 } do
+	settings index: { number_of_shards: 1} do
 	  mappings dynamic: 'false' do
 	    indexes :title, analyzer: 'english', index_options: 'offsets'
 	    indexes :author, analyzer: 'english'
