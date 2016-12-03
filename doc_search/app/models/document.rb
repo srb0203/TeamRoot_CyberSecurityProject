@@ -3,7 +3,12 @@ require 'elasticsearch/model'
 class Document < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-
+  validates :title, presence: true
+  validates :author, presence: true
+  validates :pdflink, presence: true
+  validates :doctype, presence: true
+  validates :category, presence: true
+  
   before_save(:on => :create) do
     file_names = [File.dirname(__FILE__) + '/../../GeneratedText/Download.txt']
     file_names.each do |file_name|
