@@ -1,8 +1,12 @@
 <div class="container">
-	<h1>Editing Document</h1>
+	<div class='center'>
+		<h1>Editing Document</h1>
+		<br>
+		<%= render 'form' %>
 
-	<%= render 'form' %>
-
-	<%= link_to 'Show', @document %> |
-	<%= link_to 'Back', documents_path %>
+		 <div class="footer">
+			<%= link_to 'Show', @document %> |
+			<%= link_to 'Back', documents_path %>
+		</div>
+	</div>
 </div>

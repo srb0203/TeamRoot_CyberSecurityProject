@@ -1,23 +1,38 @@
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
-  margin: 0;
+  margin: 3px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+a:link{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.field{
+  padding-bottom: 10px;
+}
+
 #error-messages{
   color:red;
   list-style-type: none;
 }
+
 #required-field{
   color:red;
 }
+
 textarea{
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 3px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -29,27 +44,11 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-
 .center {
-  position: absolute;
+  position: relative;
   left: 50%;
-  top: 30%;
-
-  /*
-  Nope =(
-  margin-left: -25%;
-  margin-top: -25%;
-   */
-
-  /* 
-  Yep!
-   */
+  top: 35%;
   transform: translate(-50%, -50%);
-
-  /*
-  Not even necessary really. 
-  e.g. Height could be left out!
-   */
   width: 40%;
   height: 50%;
 }

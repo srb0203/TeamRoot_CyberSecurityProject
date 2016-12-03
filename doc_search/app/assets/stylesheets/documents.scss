@@ -24,7 +24,7 @@ a:hover{
 #search{
 	padding: 10px;
 	margin: 0 auto;
-	width: 750px;
+	width: 760px;
 }
 
 #adv-search-link{
@@ -38,6 +38,17 @@ a:hover{
 
 #advance-search-section{
 	display: none;
+}
+
+.form-input{
+  margin: 0 auto;
+  padding: 3px;
+  padding-bottom: 5px;
+  width: 350px;
+}
+
+.form-input-label{
+	padding-bottom: 3px;
 }
 
 #author{

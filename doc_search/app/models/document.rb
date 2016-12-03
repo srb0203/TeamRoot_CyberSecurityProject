@@ -24,22 +24,12 @@ class Document < ActiveRecord::Base
   def self.search(query)
 	  __elasticsearch__.search(
 	    {
-	      query: {
-	      	filtered: {
-	      	  filter: {
-                bool: {
-                    must: {exists: {field: 'title'}},
-                    must_not: {term: {'title': ''}}
-                }
-              },
-              query:{
-              	multi_match: {
-	              query: query,
-	              fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
-	            }
-              }
-	    	}
-	      },
+          query:{
+          	multi_match: {
+              query: query,
+              fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+            }
+          },
 	      highlight: {
 	        pre_tags: ['<em>'],
 	        post_tags: ['</em>'],

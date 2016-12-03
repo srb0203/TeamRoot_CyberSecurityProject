@@ -1,33 +1,37 @@
 <%= stylesheet_link_tag 'show.scss' %>
-<div class="container" id = "show">
-  <p id="notice"><%= notice %></p>
+<div class="container">
+  <div id="show">
+    <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @document.title %>
-  </p>
+    <p class= "label-header">
+      <strong>Title:</strong>
+      <%= @document.title %>
+    </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= @document.author %>
-  </p>
+    <p class= "label-header">
+      <strong>Author:</strong>
+      <%= @document.author %>
+    </p>
 
-  <p>
-    <strong>Doc Type:</strong>
-    <%= @document.doctype %>
-  </p>
+    <p class= "label-header">
+      <strong>Doc Type:</strong>
+      <%= @document.doctype %>
+    </p>
 
-  <p>
-    <strong>Category:</strong>
-    <%= @document.category %>
-  </p>
+    <p class= "label-header">
+      <strong>Category:</strong>
+      <%= @document.category %>
+    </p>
 
-  <p>
-    <strong>Pdflink:</strong>
-    <%= link_to @document.pdflink ,@document.pdflink %>
-  </p>
-
-  <%= link_to 'Edit', edit_document_path(@document) %> |
-  <%= link_to 'Home', documents_path %>
+    <p class= "label-header">
+      <strong>Pdflink:</strong>
+      <%= link_to @document.pdflink ,@document.pdflink %>
+    </p>
+  
+    <div class="footer">
+      <%= link_to 'Edit', edit_document_path(@document) %> |
+      <%= link_to 'Home', documents_path %>
+    </div>
+  </div>
 </div>
 

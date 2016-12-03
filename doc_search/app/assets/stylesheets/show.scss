@@ -1,12 +1,33 @@
 #show {
-    position: absolute;
-    font-size: 2.0em;
-    top: 250px;
-    left: 250px;
-    width: 1000px;
-    height: 150px;
-    color:black;
-    border: 1px solid black;
+  position: relative;
+  top: 30%;
+  transform: translateY(-30%);
+  height: auto;
+  width: auto;
+  max-width: 60%;
+  min-width: 30%;
+  margin: 0 auto;
+  background: Cornsilk;
+  padding: 20px;
+  font-size: 1.2em;
+  color: black;
+  border: 1px solid black;
+  border-radius: 25px;
+  word-wrap: break-word; 
 }
 
+.label-header{
+  padding: 5px;
+}
 
+a:link{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.footer{
+	padding: 10px 0px 0px 5px;
+}
