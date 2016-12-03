@@ -7,7 +7,13 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
+#error-messages{
+  color:red;
+  list-style-type: none;
+}
+#required-field{
+  color:red;
+}
 textarea{
   width: 100%;
   padding: 12px 20px;

@@ -11,7 +11,6 @@ And I should see a text box to enter Title
 And I should see a text box to enter Author
 And I should see a text box to enter Type
 And I should see a text box to enter Category
-And I should see a text box to enter Keywords
 And I should see a text box to enter Pdflink
 And I should see a button to create document
 
@@ -29,7 +28,8 @@ Then I should go back to the summary page
 Scenario: I should be on the Add Document page
 Given I am on the New Document page to leave some text fields empty 
 When I do not enter all details of the document
-Then Create Document button should be disabled
+And I press Create Document
+Then I should see an error message
 
 Scenario: I should get an error message if i try to add document by providing an invalid link   
 Given I am on the New Document page to add new document

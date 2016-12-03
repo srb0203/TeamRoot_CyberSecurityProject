@@ -5,12 +5,12 @@ end
 
 Then(/^I should see a text box to enter keywords$/) do
   # Write code here that turns the phrase above into concrete actions
-  page.body.should have_selector("input[type=text][class='searchbar--input'][placeholder='Search...']")
+  page.body.should have_selector("input[type=text][placeholder='Search...']")
 end
 
 And(/^I should see a search button$/) do
   # Write code here that turns the phrase above into concrete actions
-  page.body.should have_selector("input[type=submit][class='searchbar--submit'][value='Search']")
+  page.body.should have_selector("input[type=submit][value='Search']")
 end
 
 When(/^I enter keywords to search in the text box and press search$/) do
@@ -39,5 +39,6 @@ When(/^I dont enter keywords in the text box and press search$/) do
 end
 
 Then(/^I should see a message that (\d+) results are found$/) do |arg1|
-  p page.body
+  #p page.body
+  page.should have_content("0 results found.")
 end
