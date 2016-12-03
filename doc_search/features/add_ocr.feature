@@ -11,7 +11,6 @@ And I should see a text box to enter Title
 And I should see a text box to enter Author
 And I should see a text box to enter Type
 And I should see a text box to enter Category
-And I should see a text box to enter Keywords
 And I should see a text box to enter ocrlink
 And I should see a button to create document
 

@@ -37,10 +37,12 @@ Then(/^I should see a text box to enter Category$/) do
   page.body.should have_selector("input[type=text][id='document_category']")
 end
 
+=begin
 Then(/^I should see a text box to enter Keywords$/) do
   # Write code here that turns the phrase above into concrete actions
   page.body.should have_selector("textarea", :id => "document_keywords")
 end
+=end
 
 Then(/^I should see a text box to enter Pdflink$/) do
   # Write code here that turns the phrase above into concrete actions
@@ -82,8 +84,10 @@ When(/^I enter details of the document$/) do
   find(:css, "input[id$='document_doctype']").set("research paper")
   # add category
   find(:css, "input[id$='document_category']").set("cyber security")
+=begin
   # add keywords
   fill_in 'document_keywords', with: "wireless network encryption"
+=end  
   # add pdf link
   fill_in 'document_pdflink', with: "http://web.eng.fiu.edu/~aperezpo/DHS/Std_Research/EthicalHackingProject.pdf"
 end
@@ -112,8 +116,10 @@ When(/^I do not enter all details of the document$/) do
   find(:css, "input[id$='document_doctype']").set("research paper")
   # add category
   find(:css, "input[id$='document_category']").set("cyber security")
+=begin  
   # add keywords
   fill_in 'document_keywords', with: "wireless network encryption"
+=end  
 end
 
 Then(/^Create Document button should be disabled$/) do
@@ -132,8 +138,10 @@ When(/^I enter invalid link for the add_pdf page$/) do
   find(:css, "input[id$='document_doctype']").set("research paper")
   # add category
   find(:css, "input[id$='document_category']").set("cyber security")
+=begin  
   # add keywords
   fill_in 'document_keywords', with: "wireless network encryption"
+=end  
   # add pdf link
   fill_in 'document_pdflink', with: "junklink"
 end
