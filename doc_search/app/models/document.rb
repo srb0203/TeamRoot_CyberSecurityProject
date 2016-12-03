@@ -3,6 +3,10 @@ require 'elasticsearch/model'
 class Document < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  validates_format_of :title, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
+  validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
+  validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
+  validates_format_of :category, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
   validates :title, presence: true
   validates :author, presence: true
   validates :pdflink, presence: true
