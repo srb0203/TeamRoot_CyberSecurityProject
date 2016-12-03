@@ -110,23 +110,14 @@ end
 When(/^I do not enter all details of the document$/) do
   # Write code here that turns the phrase above into concrete actions
   find(:css, "input[id$='document_title']").set("Wifi security : wirless network encryption")
-  # add Author
-  find(:css, "input[id$='document_author']").set("Gavin Garcia")
-  # add document type
-  find(:css, "input[id$='document_doctype']").set("research paper")
-  # add category
-  find(:css, "input[id$='document_category']").set("cyber security")
 =begin  
   # add keywords
   fill_in 'document_keywords', with: "wireless network encryption"
 =end  
 end
 
-Then(/^Create Document button should be disabled$/) do
-  # Write code here that turns the phrase above into concrete actions
-  #print page.body
-  page.should have_css("input[type=submit][value='Create Document'][disabled=disabled]")
-  
+Then(/^I should see an error message$/) do
+  page.should have_content("One or more required fields are invalid and hence prohibited the document from being saved.")
 end
 
 When(/^I enter invalid link for the add_pdf page$/) do

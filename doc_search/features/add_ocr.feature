@@ -27,5 +27,5 @@ Then I should go back to the summary page
 
 Scenario: I should be on the Add Document page
 Given I am on the New Document page to leave some text fields empty 
-When I do not enter all details of the document
-Then Create Document button should be disabled
+And I press Create Document
+Then I should see an error message
