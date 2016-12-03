@@ -13,7 +13,7 @@ a:hover{
 }
 
 #myLogo{
-	padding-top: 180px;
+	padding-top: 150px;
 	text-align: center;
 	font-size: 3.5em;
 	font-style: italic;
@@ -25,4 +25,29 @@ a:hover{
 	padding: 10px;
 	margin: 0 auto;
 	width: 750px;
+}
+
+#adv-search-link{
+	text-align: center;
+	text-decoration: underline;
+}
+
+.advance-search{
+	padding-top: 10px;
+}
+
+#advance-search-section{
+	display: none;
+}
+
+#author{
+	padding: 3px;
+}
+
+#doctype{
+	padding: 3px;
+}
+
+#category{
+	padding: 3px;
 }

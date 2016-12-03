@@ -1,17 +1,46 @@
 <%= stylesheet_link_tag 'documents.scss' %>
 
 <div class="container" id="main-page">
+
   <div class="Header">
     <%= link_to 'Add New Document', new_document_path %>
     <p id="notice"><%= notice %></p>
   </div>
+
   <div class="wrapper">
     <h1 id= "myLogo">ROOTS</h1>
       <div id = "search">
-        <form action="/search" accept-charset="UTF-8" method="get">
-          <input placeholder="Search..." type="text" name="q" id="q"></input>
-          <input id="search-submit" type="submit" value="Search"></input>
-        </form>
+
+        <%= form_tag({controller: "search", action: "search"}, method: "get") do |f|%>
+          <%= text_field_tag :q, params[:q], options = {placeholder:"Search..."}%>
+          <%= submit_tag "Search", name: nil, id: "search-submit" %>
+
+          <div class="advance-search">
+            <p id="adv-search-link"><%= link_to "Advance Search", "#", id: "advance-search-link"%></p>
+
+            <section id="advance-search-section">
+              <div class="form-input">
+                <span class="form-input-label">Author</span>
+                <%= select_tag "author", options_for_select(@all_author.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+              </div>
+
+              <div class="form-input">
+                <span class="form-input-label">Document Type</span>
+                <%= select_tag "doctype", options_for_select(@all_doctype.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+              </div>
+
+              <div class="form-input">
+                <span class="form-input-label">Category</span>
+                <%= select_tag "category", options_for_select(@all_category.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+              </div>
+
+            </section>
+
+          </div>
+
+        <% end %>
+
       </div>
-    </div>
+  </div>
+
 </div>

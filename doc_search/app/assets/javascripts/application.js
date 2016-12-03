@@ -11,7 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function runner(){
+  $("#advance-search-link").click( function() { 
+    	$('#advance-search-section').fadeToggle();
+    	return false;
+	});
+}
+
+$(document).on("turbolinks:load", runner);
 
