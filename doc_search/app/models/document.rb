@@ -30,6 +30,18 @@ class Document < ActiveRecord::Base
     end
   end
 
+  def self.get_all_authors
+    self.uniq.pluck(:author).sort
+  end
+
+  def self.get_all_doctypes
+    self.uniq.pluck(:doctype).sort
+  end
+
+  def self.get_all_categories
+    self.uniq.pluck(:category).sort
+  end
+
   def self.search(query)
 	  __elasticsearch__.search(
 	    {

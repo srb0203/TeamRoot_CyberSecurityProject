@@ -5,9 +5,9 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @all_author = Document.uniq.pluck(:author)
-    @all_doctype = Document.uniq.pluck(:doctype)
-    @all_category = Document.uniq.pluck(:category)
+    @all_author = Document.get_all_authors
+    @all_doctype = Document.get_all_doctypes
+    @all_category = Document.get_all_categories
   end
 
   # GET /documents/1
