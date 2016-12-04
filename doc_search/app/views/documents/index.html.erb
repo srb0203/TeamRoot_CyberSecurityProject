@@ -21,17 +21,17 @@
             <section id="advance-search-section">
               <div class="form-input">
                 <div class="form-input-label">Author</div>
-                <%= select_tag "author", options_for_select(@all_author.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+                <%= select_tag "author", options_for_select(@all_author), :include_blank => true,:multiple => true, :size =>3, :autocomplete=> 'off'%>
               </div>
 
               <div class="form-input">
                 <div class="form-input-label">Document Type</div>
-                <%= select_tag "doctype", options_for_select(@all_doctype.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+                <%= select_tag "doctype", options_for_select(@all_doctype), :include_blank => true,:multiple => true, :size =>3, :autocomplete=> 'off'%>
               </div>
 
               <div class="form-input">
                 <div class="form-input-label">Category</div>
-                <%= select_tag "category", options_for_select(@all_category.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+                <%= select_tag "category", options_for_select(@all_category), :include_blank => true,:multiple => true, :size =>3, :autocomplete=> 'off'%>
               </div>
 
             </section>

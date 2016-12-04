@@ -8,7 +8,7 @@ class Document < ActiveRecord::Base
     Elasticsearch::Model.client = Elasticsearch::Client.new({url: ENV['BONSAI_URL'], logs: true})
   end
 
-  validates_format_of :title, :with => /\A[a-zA-Z0-9\s:]*\z/,:message => "can only contain letters and numbers."
+  validates_format_of :title, :with => /\A[a-zA-Z0-9\s:-]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :category, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
@@ -62,6 +62,230 @@ class Document < ActiveRecord::Base
 	    }
 	  )
 	end
+
+  def self.adv_search(query, authors, doctypes, categories)
+
+    if authors.nil?
+
+      if doctypes.nil?
+        self.adv_search_categories(query, categories)
+      elsif categories.nil?
+        self.adv_search_doctypes(query, doctypes)
+      else
+        self.adv_search_doctypes_categories(query, doctypes, categories)
+      end 
+
+    elsif doctypes.nil?
+
+      if categories.nil?
+        self.adv_search_authors(query, authors)
+      else
+        self.adv_search_authors_categories(query, authors, categories)
+      end
+
+    elsif categories.nil?
+      self.adv_search_authors_doctypes(query, authors, doctypes)
+    else
+       __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'author.original': authors}},
+                {terms: {'doctype.original': doctypes}},
+                {terms: {'category.original': categories}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+    end
+  end
+
+  def self.adv_search_authors(query, authors)
+     __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'author.original': authors}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+  end
+
+  def self.adv_search_doctypes(query, doctypes)
+      __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'doctype.original': doctypes}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+  end
+
+  def self.adv_search_categories(query, categories)
+      __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'category.original': categories}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+  end
+
+  def self.adv_search_authors_doctypes(query, authors, doctypes)
+       __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'author.original': authors}},
+                {terms: {'doctype.original': doctypes}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+  end
+
+  def self.adv_search_authors_categories(query, authors, categories)
+       __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'author.original': authors}},
+                {terms: {'category.original': categories}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+  end
+
+  def self.adv_search_doctypes_categories(query, doctypes, categories)
+       __elasticsearch__.search(
+        {
+          query:{
+            bool: {
+              must: { 
+                multi_match: {
+                  query: query,
+                  fields: ['title^10', 'author^10', 'doctype^5', 'category^5', 'keywords']
+                }
+              },
+              filter:[
+                {terms: {'doctype.original': doctypes}},
+                {terms: {'category.original': categories}}
+              ]
+            }
+          },
+          highlight: {
+            pre_tags: ['<em>'],
+            post_tags: ['</em>'],
+            fields: {
+              title: {},
+              keywords: {"fragment_size"=>100, "number_of_fragments"=>1}
+            }
+          }
+        }
+      )
+  end
 
 	settings index: { number_of_shards: 1} do
 	  mappings dynamic: 'false' do
