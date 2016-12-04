@@ -17,6 +17,28 @@
         <%= form_for search_path, method: :get do |f| %>
           <%= text_field_tag :q, params[:q], options = {placeholder:"Search..."}%>
           <%= submit_tag "Search", name: nil, id: "search-submit" %>
+          <div class="advance-search">
+            <p id="adv-search-link"><%= link_to "Advance Search", "#", id: "advance-search-link"%></p>
+
+            <section id="advance-search-section">
+              <div class="form-input">
+                <div class="form-input-label">Author</div>
+                <%= select_tag "author", options_for_select(@all_author.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+              </div>
+
+              <div class="form-input">
+                <div class="form-input-label">Document Type</div>
+                <%= select_tag "doctype", options_for_select(@all_doctype.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+              </div>
+
+              <div class="form-input">
+                <div class="form-input-label">Category</div>
+                <%= select_tag "category", options_for_select(@all_category.insert(0, "None")),:multiple => true, :size =>3, :autocomplete=> 'off'%>
+              </div>
+
+            </section>
+
+          </div>
         <% end %>
       </div>
 

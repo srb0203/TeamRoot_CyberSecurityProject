@@ -47,7 +47,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params) 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document parsed and saved in a text format' }
+        format.html { redirect_to @document, notice: 'Document parsed and saved in a text format.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }

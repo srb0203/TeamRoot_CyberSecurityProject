@@ -4,6 +4,10 @@ class Document < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  if ENV['BONSAI_URL']
+    Elasticsearch::Model.client = Elasticsearch::Client.new({url: ENV['BONSAI_URL'], logs: true})
+  end
+
   validates_format_of :title, :with => /\A[a-zA-Z0-9\s:]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
   validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
@@ -49,10 +53,26 @@ class Document < ActiveRecord::Base
 
 	settings index: { number_of_shards: 1} do
 	  mappings dynamic: 'false' do
-	    indexes :title, analyzer: 'english', index_options: 'offsets'
-	    indexes :author, analyzer: 'english'
-	    indexes :doctype, analyzer: 'english'
-	    indexes :category, analyzer: 'english'
+      indexes :title, type: 'multi_field' do
+          indexes :title, type: :string, analyzer: 'english', index_options: 'offsets'
+          indexes :original, type: :string, index: 'not_analyzed', index_options: 'offsets'
+      end
+
+      indexes :author, type: 'multi_field' do
+          indexes :author, type: :string, analyzer: 'english', index_options: 'offsets'
+          indexes :original, type: :string, index: 'not_analyzed'
+      end
+
+      indexes :doctype, type: 'multi_field' do
+          indexes :doctype, type: :string, analyzer: 'english', index_options: 'offsets'
+          indexes :original, type: :string, index: 'not_analyzed'
+      end
+
+      indexes :category, type: 'multi_field' do
+          indexes :category, type: :string, analyzer: 'english', index_options: 'offsets'
+          indexes :original, type: :string, index: 'not_analyzed'
+      end
+
 	    indexes :keywords, analyzer: 'english'
 	  end
 	end

@@ -30,7 +30,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Haml as the templating library
 gem 'haml'
 
-
 gem 'kaminari'
 
 # Use elasticsearch for text searching
