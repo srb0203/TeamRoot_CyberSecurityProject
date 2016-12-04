@@ -1,10 +1,11 @@
 class SearchController < ApplicationController
 
 	def search
+
 	  @all_author = Document.uniq.pluck(:author)
       @all_doctype = Document.uniq.pluck(:doctype)
       @all_category = Document.uniq.pluck(:category)
-      byebug
+
 	  if params[:q].nil?
 	    @documents = []
 	  else
