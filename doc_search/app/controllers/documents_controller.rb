@@ -27,7 +27,7 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-
+    convert_camelcase
     filename = document_params['pdflink']
     len = filename.length
     if(filename[len-3..len] == "pdf")
@@ -59,6 +59,7 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
   def update
+    convert_camelcase
     respond_to do |format|
       if @document.update(document_params)
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
@@ -88,6 +89,13 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:title, :author, :doctype, :category, :keywords, :pdflink)
+      @document_params ||= params.require(:document).permit(:title, :author, :doctype, :category, :keywords, :pdflink)
+    end
+    
+    def convert_camelcase
+      document_params['title'] = document_params['title'].split(' ').collect(&:capitalize).join(" ")
+      document_params['doctype'] = document_params['doctype'].split(' ').collect(&:capitalize).join(" ")
+      document_params['author'] = document_params['author'].split(' ').collect(&:capitalize).join(" ")
+      document_params['category'] = document_params['category'].split(' ').collect(&:capitalize).join(" ")  
     end
 end

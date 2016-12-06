@@ -1,26 +1,31 @@
 <%= form_for(@document) do |f| %>
   <% if @document.errors.any? %>
-    <div id="error-messages">
-      <h5>One or more required fields are invalid and hence prohibited the document from being saved.</h5>
+   <div id="error-messages">
+     <h4><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h4>
+     <br>
+      <ul>
+      <% @document.errors.full_messages.each do |message| %>
+        <h5><%= message %></h5>
+      <% end %>
+      <br>
+    </ul>
     </div>
-    <br>
-  <% end %>
-  
+    <% end %>
   <div class="field">
     <%= f.label :title_ %><span id="required-field">*</span><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title,:maxlength => 255 %>
   </div>
   <div class="field">
     <%= f.label :author_ %><span id="required-field">*</span><br>
-    <%= f.text_field :author %>
+    <%= f.text_field :author,:maxlength => 64 %>
   </div>
   <div class="field">
     <%= f.label :doctype_ %><span id="required-field">*</span><br>
-    <%= f.text_field :doctype %>
+    <%= f.text_field :doctype,:maxlength => 64 %>
   </div>
   <div class="field">
     <%= f.label :category_ %><span id="required-field">*</span><br>
-    <%= f.text_field :category %>
+    <%= f.text_field :category,:maxlength => 64 %>
   </div>
   <div class="field">
     <%= f.label :pdflink_ %><span id="required-field">*</span><br>
