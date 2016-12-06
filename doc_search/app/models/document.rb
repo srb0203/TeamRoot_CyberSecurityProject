@@ -8,10 +8,11 @@ class Document < ActiveRecord::Base
     Elasticsearch::Model.client = Elasticsearch::Client.new({url: ENV['BONSAI_URL'], logs: true})
   end
 
-  validates_format_of :title, :with => /\A[a-zA-Z0-9\s:-]*\z/,:message => "can only contain letters and numbers."
-  validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
-  validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
-  validates_format_of :category, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain letters and numbers."
+  validates_format_of :title, length: { maximum: 10 }, :with => /\A[a-zA-Z0-9\s:;\-\(\)]*\z/,:message => "can only contain alphanumeric and :(),;-/ characters."
+  validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
+  validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
+  validates_format_of :category, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
+  
   validates :title, presence: true
   validates :author, presence: true
   validates :pdflink, presence: true
