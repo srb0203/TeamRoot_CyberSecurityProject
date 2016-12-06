@@ -5,9 +5,7 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @all_author = Document.get_all_authors
-    @all_doctype = Document.get_all_doctypes
-    @all_category = Document.get_all_categories
+    get_meta_data
   end
 
   # GET /documents/1
@@ -17,19 +15,23 @@ class DocumentsController < ApplicationController
 
   # GET /documents/new
   def new
+    get_meta_data
     @document = Document.new
   end
 
   # GET /documents/1/edit
   def edit
+    get_meta_data
   end
 
   # POST /documents
   # POST /documents.json
   def create
     convert_camelcase
+
     filename = document_params['pdflink']
     len = filename.length
+
     if(filename[len-3..len] == "pdf")
       open('Download.pdf', 'wb') do |file|
         file << open(filename).read
@@ -44,12 +46,15 @@ class DocumentsController < ApplicationController
       `tesseract #{input_image} GeneratedText/Download -l eng`
       File.delete('Download.png')
     end
+
     @document = Document.new(document_params) 
+    
     respond_to do |format|
       if @document.save
         format.html { redirect_to @document, notice: 'Document parsed and saved in a text format.' }
         format.json { render :show, status: :created, location: @document }
       else
+        get_meta_data
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
@@ -60,11 +65,13 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1.json
   def update
     convert_camelcase
+
     respond_to do |format|
       if @document.update(document_params)
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
+        get_meta_data
         format.html { render :edit }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
@@ -97,5 +104,11 @@ class DocumentsController < ApplicationController
       document_params['doctype'] = document_params['doctype'].split(' ').collect(&:capitalize).join(" ")
       document_params['author'] = document_params['author'].split(' ').collect(&:capitalize).join(" ")
       document_params['category'] = document_params['category'].split(' ').collect(&:capitalize).join(" ")  
+    end
+
+    def get_meta_data
+      @all_author = Document.get_all_authors
+      @all_doctype = Document.get_all_doctypes
+      @all_category = Document.get_all_categories
     end
 end

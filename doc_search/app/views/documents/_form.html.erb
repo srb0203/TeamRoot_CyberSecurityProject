@@ -16,16 +16,37 @@
     <%= f.text_field :title,:maxlength => 255 %>
   </div>
   <div class="field">
-    <%= f.label :author_ %><span id="required-field">*</span><br>
-    <%= f.text_field :author,:maxlength => 64 %>
+    <!--<%= f.label :author_ %><span id="required-field">*</span><br>
+    <%= f.text_field :author,:maxlength => 64 %> -->
+    <%= f.label :author_, "Author" %>: <span id="required-field">*</span><br>
+    <%= f.text_field :author, :maxlength => 64, list: 'author-name' %>
+      <datalist id="author-name">
+        <% @all_author.each do |author| %>
+          <option value="<%= author %>"></option>
+        <% end %>
+    </datalist>
   </div>
   <div class="field">
-    <%= f.label :doctype_ %><span id="required-field">*</span><br>
-    <%= f.text_field :doctype,:maxlength => 64 %>
+    <!--<%= f.label :doctype_ %><span id="required-field">*</span><br>
+    <%= f.text_field :doctype,:maxlength => 64 %> -->
+    <%= f.label :doctype_, "Document Type" %>: <span id="required-field">*</span><br>
+    <%= f.text_field :doctype, :maxlength => 64, list: 'doctype-name' %>
+      <datalist id="doctype-name">
+        <% @all_doctype.each do |doctype| %>
+          <option value="<%= doctype %>"></option>
+        <% end %>
+    </datalist>
   </div>
   <div class="field">
-    <%= f.label :category_ %><span id="required-field">*</span><br>
-    <%= f.text_field :category,:maxlength => 64 %>
+    <!--<%= f.label :category_ %><span id="required-field">*</span><br>
+    <%= f.text_field :category,:maxlength => 64 %>-->
+    <%= f.label :category_, "Category" %>: <span id="required-field">*</span><br>
+    <%= f.text_field :category, :maxlength => 64, list: 'category-name' %>
+      <datalist id="category-name">
+        <% @all_category.each do |category| %>
+          <option value="<%= category %>"></option>
+        <% end %>
+    </datalist>
   </div>
   <div class="field">
     <%= f.label :pdflink_ %><span id="required-field">*</span><br>
