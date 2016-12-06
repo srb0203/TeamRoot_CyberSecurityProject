@@ -47,7 +47,7 @@ input[type=submit]:hover {
 .center {
   position: relative;
   left: 50%;
-  top: 35%;
+  top: 33%;
   transform: translate(-50%, -50%);
   width: 40%;
   height: 50%;
