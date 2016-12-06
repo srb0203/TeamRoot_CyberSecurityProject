@@ -27,7 +27,10 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-
+    document_params['title'] = document_params['title'].split(' ').collect(&:capitalize).join(" ")
+    document_params['doctype'] = document_params['doctype'].split(' ').collect(&:capitalize).join(" ")
+    document_params['author'] = document_params['author'].split(' ').collect(&:capitalize).join(" ")
+    document_params['category'] = document_params['category'].split(' ').collect(&:capitalize).join(" ")
     filename = document_params['pdflink']
     len = filename.length
     if(filename[len-3..len] == "pdf")
@@ -88,6 +91,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:title, :author, :doctype, :category, :keywords, :pdflink)
+      @document_params ||= params.require(:document).permit(:title, :author, :doctype, :category, :keywords, :pdflink)
     end
 end
