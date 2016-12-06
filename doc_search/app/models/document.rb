@@ -4,10 +4,12 @@ class Document < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  
   if ENV['BONSAI_URL']
     Elasticsearch::Model.client = Elasticsearch::Client.new({url: ENV['BONSAI_URL'], logs: true})
   end
-
+   
+  validates_uniqueness_of :title , :message =>"of the document already exists" 
   validates_format_of :title, length: { maximum: 10 }, :with => /\A[a-zA-Z0-9\s:;\-\(\)]*\z/,:message => "can only contain alphanumeric and :(),;-/ characters."
   validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
   validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
@@ -35,6 +37,10 @@ class Document < ActiveRecord::Base
     self.uniq.pluck(:author).sort
   end
 
+ def self.get_all_titles
+    self.uniq.pluck(:title).sort
+  end
+  
   def self.get_all_doctypes
     self.uniq.pluck(:doctype).sort
   end
