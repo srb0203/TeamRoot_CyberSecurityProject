@@ -52,7 +52,9 @@ aside {
 main {
   float: right;
   width: 770px;
-  height: 100%;
+  position: relative;
+  height: auto;
+  min-height: 100%;
   background-color: MintCream;
 }
 
