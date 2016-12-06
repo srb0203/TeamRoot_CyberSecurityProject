@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :doctype_ %><span id="required-field">*</span><br>
-    <%= f.text_field :doctype %>
+    <%= f.text_field :doctype,:maxlength => 64 %>
   </div>
   <div class="field">
     <%= f.label :category_ %><span id="required-field">*</span><br>
-    <%= f.text_field :category %>
+    <%= f.text_field :category,:maxlength => 64 %>
   </div>
   <div class="field">
     <%= f.label :pdflink_ %><span id="required-field">*</span><br>
