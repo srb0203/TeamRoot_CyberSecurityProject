@@ -27,18 +27,18 @@ Then(/^I should be on the search results page$/) do
 end
 
 And(/^I should see a list of documents that match the searched keywords$/) do
-  p page.body
+  #p page.body
   # Write code here that turns the phrase above into concrete actions
   page.body.should have_css("p")
 end
 
 When(/^I dont enter keywords in the text box and press search$/) do
-  fill_in 'q', :with => ''
+  fill_in 'q', :with => 'abc'
   click_button 'Search'
   
 end
 
 Then(/^I should see a message that (\d+) results are found$/) do |arg1|
-  #p page.body
-  page.should have_content("0 results found.")
+  p page.body
+  page.should have_content("No search results.")
 end
