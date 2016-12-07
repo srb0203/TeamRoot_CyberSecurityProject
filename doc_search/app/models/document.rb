@@ -14,7 +14,10 @@ class Document < ActiveRecord::Base
   validates_format_of :author, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
   validates_format_of :doctype, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
   validates_format_of :category, :with => /\A[a-zA-Z0-9\s]*\z/,:message => "can only contain alphanumeric characters."
-  validates_uniqueness_of :pdflink , :message =>"of the document already exists." 
+  validates_format_of :pdflink, :with => /\A(http(s?):\/\/+).+(\.(pdf|png|jpg))\z/,:message => " is invalid.
+  Supported document types are pdf, png and jpg."
+  
+  #validates_uniqueness_of :pdflink , :message =>"of the document already exists." 
 
   validates :title, presence: true
   validates :author, presence: true

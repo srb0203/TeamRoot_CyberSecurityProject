@@ -28,15 +28,20 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     convert_camelcase
-
+    
     filename = document_params['pdflink']
+    documenttype = document_params['doctype']
     len = filename.length
 
     if(filename[len-3..len] == "pdf")
       open('Download.pdf', 'wb') do |file|
         file << open(filename).read
       end
-      Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
+      if(documenttype == "Scanned Pdf")
+        Docsplit.extract_text('Download.pdf', :ocr => true, :output => 'GeneratedText')
+      else
+        Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
+      end
       File.delete('Download.pdf')
     elsif(filename[len-3..len] == "png")
       open('Download.png', 'wb') do |file|

@@ -53,6 +53,6 @@
     <%= f.text_area :pdflink %>
   </div>
   <div class="actions">
-    <%= f.submit %><span>  (* = required)</span>
+    <%= f.submit data: { disable_with: "Please wait while we parse the document..." } %><span>  (* = required)</span>
   </div>
 <% end %>
