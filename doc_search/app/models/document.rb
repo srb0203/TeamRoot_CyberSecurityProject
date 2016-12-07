@@ -17,7 +17,7 @@ class Document < ActiveRecord::Base
   validates_format_of :pdflink, :with => /\A(http(s?):\/\/+).+(\.(pdf|png|jpg))\z/,:message => " is invalid.
   Supported document types are pdf, png and jpg."
   
-  #validates_uniqueness_of :pdflink , :message =>"of the document already exists." 
+  validates_uniqueness_of :pdflink , :message =>"of the document already exists." 
 
   validates :title, presence: true
   validates :author, presence: true
