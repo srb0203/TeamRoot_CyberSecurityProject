@@ -39,6 +39,6 @@ When(/^I dont enter keywords in the text box and press search$/) do
 end
 
 Then(/^I should see a message that (\d+) results are found$/) do |arg1|
-  p page.body
+  #p page.body
   page.should have_content("No search results.")
 end

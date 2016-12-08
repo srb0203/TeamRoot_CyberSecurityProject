@@ -117,7 +117,7 @@ When(/^I do not enter all details of the document$/) do
 end
 
 Then(/^I should see an error message$/) do
-  page.should have_content("One or more required fields are invalid and hence prohibited the document from being saved.")
+  page.should have_content("errors prohibited this document from being saved")
 end
 
 When(/^I enter invalid link for the add_pdf page$/) do
@@ -135,8 +135,10 @@ When(/^I enter invalid link for the add_pdf page$/) do
 =end  
   # add pdf link
   fill_in 'document_pdflink', with: "junklink"
+  click_button 'Create Document'
 end
 
 Then(/^I should get an error message that the document cannot be added because of the invalid link$/) do
-  page.should have_content "Invalid Link! Unable to add document"
+  #p page.body
+  page.should have_content "Pdflink  is invalid."
 end
