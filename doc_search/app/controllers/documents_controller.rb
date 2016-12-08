@@ -33,37 +33,49 @@ class DocumentsController < ApplicationController
     documenttype = document_params['doctype']
     len = filename.length
 
-    if(filename[len-3..len] == "pdf")
-      open('Download.pdf', 'wb') do |file|
-        file << open(filename).read
+    begin
+      if(filename[len-3..len] == "pdf")
+        open('Download.pdf', 'wb') do |file|
+          file << open(filename).read
+        end
+        if(documenttype == "Scanned Pdf")
+          Docsplit.extract_text('Download.pdf', :ocr => true, :output => 'GeneratedText')
+        else
+          Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
+        end
+        File.delete('Download.pdf')
+      elsif(filename[len-3..len] == "png")
+        open('Download.png', 'wb') do |file|
+          file << open(filename).read
+        end
+        input_image = 'Download.png'
+        `tesseract #{input_image} GeneratedText/Download -l eng`
+        File.delete('Download.png')
       end
-      if(documenttype == "Scanned Pdf")
-        Docsplit.extract_text('Download.pdf', :ocr => true, :output => 'GeneratedText')
-      else
-        Docsplit.extract_text('Download.pdf', :ocr => false, :output => 'GeneratedText')
-      end
-      File.delete('Download.pdf')
-    elsif(filename[len-3..len] == "png")
-      open('Download.png', 'wb') do |file|
-        file << open(filename).read
-      end
-      input_image = 'Download.png'
-      `tesseract #{input_image} GeneratedText/Download -l eng`
-      File.delete('Download.png')
-    end
 
-    @document = Document.new(document_params) 
+      @document = Document.new(document_params) 
     
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to @document, notice: 'Document parsed and saved in a text format.' }
-        format.json { render :show, status: :created, location: @document }
-      else
+      respond_to do |format|
+        if @document.save
+          format.html { redirect_to @document, notice: 'Document parsed and saved in a text format.' }
+          format.json { render :show, status: :created, location: @document }
+        else
+          get_meta_data
+          format.html { render :new }
+          format.json { render json: @document.errors, status: :unprocessable_entity }
+        end
+      end 
+
+    rescue => e
+      Rails.logger.error { "#{e.message} #{e.backtrace.join("\n")}" }
+      respond_to do |format|
         get_meta_data
+        flash[:error] = 'Could not parse the given document. Please try again later.'
+        @document = Document.new(document_params) 
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
-    end
+    end   
   end
 
   # PATCH/PUT /documents/1

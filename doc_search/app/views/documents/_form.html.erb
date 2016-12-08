@@ -11,6 +11,8 @@
     </ul>
     </div>
     <% end %>
+  <p id="error"><%= flash[:error] %></p>
+  <br>
   <div class="field">
     <%= f.label :title_ %><span id="required-field">*</span><br>
     <%= f.text_field :title,:maxlength => 255 %>

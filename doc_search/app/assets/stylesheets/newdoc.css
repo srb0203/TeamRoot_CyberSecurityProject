@@ -20,6 +20,10 @@ a:hover{
   padding-bottom: 10px;
 }
 
+#error{
+  color:red;
+}
+
 #error-messages{
   color:red;
   list-style-type: none;
